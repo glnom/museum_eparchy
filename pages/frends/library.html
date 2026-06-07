@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Библиотека | Церковно-исторический музей</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background-color:#fefaf5; color:#2c2418; line-height:1.5; }
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .top-nav { background:#ffffff; border-bottom:1px solid #e8ddce; padding:16px 0; position:sticky; top:0; z-index:100; background:rgba(255,252,245,0.96); backdrop-filter:blur(8px); }
+        .nav-flex { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px; }
+        .logo { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:#8b5a2b; }
+        .nav-links { display:flex; flex-wrap:wrap; gap:28px; list-style:none; }
+        .nav-links a { text-decoration:none; font-weight:500; color:#3e2c1a; transition:0.2s; font-size:0.95rem; }
+        .nav-links a:hover { color:#b47c44; }
+        .page-hero { background:linear-gradient(135deg,#2a241a 0%,#1f1b14 100%); color:#fef0df; padding:60px 0; text-align:center; }
+        .page-hero h1 { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:600; margin-bottom:12px; }
+        .page-hero p { font-size:1.1rem; opacity:0.9; }
+        .books-section { padding:60px 0; }
+        .section-title { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:600; margin-bottom:40px; color:#3b2a1c; text-align:center; }
+        .books-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:32px; }
+        .book-card { background:white; border-radius:24px; padding:28px; box-shadow:0 6px 14px rgba(0,0,0,0.03); border:1px solid #f0e2d2; transition:0.25s; }
+        .book-card:hover { transform:translateY(-6px); box-shadow:0 20px 28px -12px rgba(0,0,0,0.12); border-color:#ddb582; }
+        .book-card i { font-size:2.2rem; color:#b77c3a; margin-bottom:16px; }
+        .book-card h3 { font-size:1.3rem; font-weight:600; margin-bottom:8px; }
+        .book-card p { color:#5c4b34; font-size:0.9rem; margin-bottom:12px; }
+        .book-link { color:#b77c3a; text-decoration:none; font-weight:500; font-size:0.9rem; }
+        .digital-block { background:#f8f1e8; padding:50px 0; margin-top:20px; border-radius:32px; text-align:center; }
+        .digital-block h3 { font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:12px; }
+        .digital-block p { color:#5c4b34; margin-bottom:20px; }
+        .btn-outline { display:inline-block; background:#ebdecb; padding:10px 28px; border-radius:40px; text-decoration:none; color:#3f2c18; font-weight:600; }
+        .bottom-links { padding:48px 0 60px; background:#fffaf3; border-top:1px solid #e5d5c0; text-align:center; }
+        .bottom-links-flex { display:flex; flex-wrap:wrap; justify-content:center; gap:32px; }
+        .bottom-links-flex a { text-decoration:none; color:#6b4a28; font-weight:500; }
+        @media (max-width:800px) { .nav-flex { flex-direction:column; text-align:center; } .page-hero h1 { font-size:1.8rem; } }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <div class="container nav-flex">
+            <div class="logo">⛪ Церковно-исторический музей</div>
+            <ul class="nav-links">
+                <li><a href="#">Виртуальный тур</a></li><li><a href="#">Посетителям</a></li>
+                <li><a href="#">Обратная связь</a></li><li><a href="#">Для детей</a></li><li><a href="#">Главная</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-hero"><div class="container"><h1>Библиотека</h1><p>Старопечатные и редкие книги</p></div></div>
+    <div class="books-section"><div class="container">
+        <h2 class="section-title">Книжный фонд</h2>
+        <div class="books-grid">
+            <div class="book-card"><i class="fas fa-book-open"></i><h3>Список старопечатных книг XVI–XIX вв.</h3><p>Древние издания, рукописные пометы</p><a href="#" class="book-link">Подробнее →</a></div>
+            <div class="book-card"><i class="fas fa-scroll"></i><h3>«История Череповецкой епархии» (1915 г.)</h3><p>PDF-версия с возможностью чтения</p><a href="#" class="book-link">Открыть →</a></div>
+            <div class="book-card"><i class="fas fa-pray"></i><h3>«Жития местночтимых святых»</h3><p>Подвижники благочестия Череповецкой земли</p><a href="#" class="book-link">Читать →</a></div>
+        </div>
+        <div class="digital-block"><h3>Цифровая библиотека</h3><p>Отсканированные книги с возможностью чтения онлайн</p><a href="#" class="btn-outline">Перейти в цифровую библиотеку →</a></div>
+    </div></div>
+    <div class="bottom-links"><div class="container"><div class="bottom-links-flex"><a href="#">Спецпроекты</a><a href="#">Архив событий</a><a href="#">Партнёры</a><a href="#">Волонтёрство</a><a href="#">Фотогалерея</a></div></div></div>
+</body>
+</html>

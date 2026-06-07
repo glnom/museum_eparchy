@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Архив документов | Церковно-исторический музей</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background-color:#fefaf5; color:#2c2418; line-height:1.5; }
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .top-nav { background:#ffffff; border-bottom:1px solid #e8ddce; padding:16px 0; position:sticky; top:0; z-index:100; background:rgba(255,252,245,0.96); backdrop-filter:blur(8px); }
+        .nav-flex { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px; }
+        .logo { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:#8b5a2b; }
+        .nav-links { display:flex; flex-wrap:wrap; gap:28px; list-style:none; }
+        .nav-links a { text-decoration:none; font-weight:500; color:#3e2c1a; transition:0.2s; font-size:0.95rem; }
+        .nav-links a:hover { color:#b47c44; }
+        .page-hero { background:linear-gradient(135deg,#2a241a 0%,#1f1b14 100%); color:#fef0df; padding:60px 0; text-align:center; }
+        .page-hero h1 { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:600; margin-bottom:12px; }
+        .page-hero p { font-size:1.1rem; opacity:0.9; }
+        .overview { background:#f8f1e8; padding:30px 0; border-bottom:1px solid #e5d5c0; }
+        .overview-box { background:white; border-radius:24px; padding:24px; border:1px solid #f0e2d2; }
+        .overview-box h3 { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:8px; }
+        .docs-section { padding:60px 0; }
+        .section-title { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:600; margin-bottom:40px; color:#3b2a1c; text-align:center; }
+        .docs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:32px; }
+        .doc-card { background:white; border-radius:24px; padding:28px; box-shadow:0 6px 14px rgba(0,0,0,0.03); border:1px solid #f0e2d2; transition:0.25s; }
+        .doc-card:hover { transform:translateY(-6px); border-color:#ddb582; }
+        .doc-card i { font-size:2rem; color:#b77c3a; margin-bottom:16px; }
+        .doc-card h3 { font-size:1.2rem; font-weight:600; margin-bottom:6px; }
+        .doc-card p { color:#5c4b34; font-size:0.85rem; }
+        .bottom-links { padding:48px 0 60px; background:#fffaf3; border-top:1px solid #e5d5c0; text-align:center; }
+        .bottom-links-flex { display:flex; flex-wrap:wrap; justify-content:center; gap:32px; }
+        .bottom-links-flex a { text-decoration:none; color:#6b4a28; font-weight:500; }
+        @media (max-width:800px) { .nav-flex { flex-direction:column; text-align:center; } }
+    </style>
+</head>
+<body>
+    <div class="top-nav"><div class="container nav-flex"><div class="logo">⛪ Церковно-исторический музей</div><ul class="nav-links"><li><a href="#">Виртуальный тур</a></li><li><a href="#">Посетителям</a></li><li><a href="#">Обратная связь</a></li><li><a href="#">Для детей</a></li><li><a href="#">Главная</a></li></ul></div></div>
+    <div class="page-hero"><div class="container"><h1>Архив документов</h1><p>Письма, биографические записи, метрические книги</p></div></div>
+    <div class="overview"><div class="container"><div class="overview-box"><h3>Об архивном фонде</h3><p>Оцифрованные записи, уникальные письма религиозных деятелей XIX–XX вв.</p></div></div></div>
+    <div class="docs-section"><div class="container"><h2 class="section-title">Документы</h2><div class="docs-grid">
+        <div class="doc-card"><i class="fas fa-envelope-open-text"></i><h3>Коллекция писем религиозных деятелей</h3><p>Каталог из 150+ единиц</p></div>
+        <div class="doc-card"><i class="fas fa-feather-alt"></i><h3>Письмо святителя Игнатия (Брянчанинова)</h3><p>К духовнику, 1860 г.</p></div>
+        <div class="doc-card"><i class="fas fa-scroll"></i><h3>Письмо митрополита Антония (Вадковского)</h3><p>Начало XX века</p></div>
+        <div class="doc-card"><i class="fas fa-users"></i><h3>Биографические записи клириков</h3><p>Подвижники Череповецкой епархии</p></div>
+        <div class="doc-card"><i class="fas fa-cross"></i><h3>Биография архиепископа Варсонофия</h3><p>Череповецкий архиерей</p></div>
+        <div class="doc-card"><i class="fas fa-church"></i><h3>Биография игумении Елисаветы (Соколовой)</h3><p>Основательница общины</p></div>
+    </div></div></div>
+    <div class="bottom-links"><div class="container"><div class="bottom-links-flex"><a href="#">Спецпроекты</a><a href="#">Архив событий</a><a href="#">Партнёры</a><a href="#">Волонтёрство</a><a href="#">Фотогалерея</a></div></div></div>
+</body>
+</html>
