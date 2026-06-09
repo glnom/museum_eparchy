@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Православный календарь — Церковно-исторический музей</title>
+    <!-- Шрифты Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefaf5;
+            color: #2c2418;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+
+        .top-nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e8ddce;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 252, 245, 0.96);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #8b5a2b;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #3e2c1a;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #b47c44;
+        }
+
+
+        .hero {
+            background: linear-gradient(135deg, #2a241a 0%, #1f1b14 100%);
+            color: #fef0df;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+
+        .filters-bar {
+            background: #f8f1e8;
+            padding: 20px 0;
+            border-bottom: 1px solid #e2cdb5;
+        }
+
+        .filters-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: #ffffff;
+            border: 1px solid #e2cdb5;
+            border-radius: 40px;
+            padding: 8px 20px;
+            font-weight: 500;
+            color: #3e2c1a;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-btn:hover {
+            background: #ebdecb;
+        }
+
+        .filter-btn.active {
+            background: #d9a066;
+            color: #2c2418;
+            border-color: #d9a066;
+        }
+        .calendar-section {
+            padding: 60px 0;
+            background: #fefaf5;
+            min-height: 400px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .calendar-cell {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 20px;
+            border: 1px solid #f0e2d2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.25s;
+            min-height: 120px;
+        }
+
+        .calendar-cell:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 24px -8px rgba(0, 0, 0, 0.08);
+            border-color: #ddb582;
+        }
+
+        .calendar-cell .date {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #8b5a2b;
+            margin-bottom: 6px;
+        }
+
+        .calendar-cell .event {
+            font-size: 0.95rem;
+            color: #4a3a28;
+        }
+
+        .calendar-cell .event i {
+            color: #b77c3a;
+            margin-right: 6px;
+            font-size: 0.8rem;
+        }
+
+               .no-dates {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 1.2rem;
+            color: #6b4a28;
+            grid-column: 1 / -1;
+        }
+
+              .footer {
+            background: #251f17;
+            color: #d9cdbc;
+            padding: 40px 0 28px;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            color: #ebd5b0;
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .footer-col p {
+            margin: 6px 0;
+            font-size: 0.9rem;
+        }
+
+        .socials i {
+            font-size: 1.6rem;
+            margin-right: 18px;
+            color: #e2bc8c;
+        }
+
+        hr {
+            margin: 28px 0 20px;
+            border-color: #3f3324;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+              @media (max-width: 1000px) {
+            .calendar-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .calendar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+  
+    <div class="top-nav">
+        <div class="container nav-flex">
+            <div class="logo">⛪ Церковно-исторический музей</div>
+            <ul class="nav-links">
+                <li><a href="For visitors.html">Посетителям</a></li>
+                <li><a href="Feedback.html">Обратная связь</a></li>
+                <li><a href="Номе page of the syte.html">Главная</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="hero">
+        <div class="container">
+            <h1>Православный календарь</h1>
+            <p>Памятные даты, святые и события, связанные с епархией</p>
+        </div>
+    </div>
+
+
+    <div class="filters-bar">
+        <div class="container">
+            <div class="filters-flex" id="monthButtons">
+                <button class="filter-btn active" data-month="all">Все</button>
+                <button class="filter-btn" data-month="1">Январь</button>
+                <button class="filter-btn" data-month="2">Февраль</button>
+                <button class="filter-btn" data-month="3">Март</button>
+                <button class="filter-btn" data-month="4">Апрель</button>
+                <button class="filter-btn" data-month="5">Май</button>
+                <button class="filter-btn" data-month="6">Июнь</button>
+                <button class="filter-btn" data-month="7">Июль</button>
+                <button class="filter-btn" data-month="8">Август</button>
+                <button class="filter-btn" data-month="9">Сентябрь</button>
+                <button class="filter-btn" data-month="10">Октябрь</button>
+                <button class="filter-btn" data-month="11">Ноябрь</button>
+                <button class="filter-btn" data-month="12">Декабрь</button>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="calendar-section">
+        <div class="container">
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Ячейки будут вставлены через JavaScript -->
+            </div>
+        </div>
+    </div>
+
+   
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Церковно-исторический музей</h4>
+                    <p><i class="fa-regular fa-location-dot"></i> г. Екатеринбург, ул. Храмовая, 12</p>
+                    <p><i class="fa-regular fa-phone"></i> +7 (343) 255-33-88</p>
+                    <p><i class="fa-regular fa-envelope"></i> museum@eparhia.ru</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Режим работы</h4>
+                    <p>Вт–Вс: 10:00 – 18:00</p>
+                    <p>Чт: 12:00 – 20:00</p>
+                    <p>Пн — выходной</p>
+                </div>
+                <div class="footer-col socials">
+                    <h4>Мы в соцсетях</h4>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-odnoklassniki"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <p style="margin-top: 14px;"><i class="fa-regular fa-message"></i> feedback@museum.ru</p>
+                </div>
+            </div>
+            <hr>
+            <div class="copyright">© 2026 Церковно-исторический музей. Сохранение духовного наследия.</div>
+        </div>
+    </footer>
+
+    <script>
+              const calendarData = {
+            1: [
+                { date: '1 января', event: 'Память святителя Игнатия' },
+                { date: '7 января', event: 'Рождество Христово' },
+                { date: '19 января', event: 'Крещение Господне' }
+            ],
+            2: [
+                { date: '2 февраля', event: 'Память преподобного Ефрема Сирина' },
+                { date: '15 февраля', event: 'Сретение Господне' }
+            ],
+            3: [
+                { date: '1 марта', event: 'Память святителя Антония' },
+                { date: '7 марта', event: 'Память святых Череповецких' }
+            ],
+            4: [
+                { date: '7 апреля', event: 'Благовещение Пресвятой Богородицы' },
+                { date: '23 апреля', event: 'Память святителя Иоанна' }
+            ],
+            5: [
+                { date: '1 мая', event: 'Память святителя Ермогена' },
+                { date: '9 мая', event: 'Память святителя Никона' },
+                { date: '25 мая', event: 'Память святителя Ермогена' }
+            ],
+            6: [
+                { date: '1 июня', event: 'Память святителя Антония' },
+                { date: '3 июня', event: 'Память святителя Варсонофия' },
+                { date: '5 июня', event: 'Память святителя Андрея' }
+            ],
+            7: [
+                { date: '12 июля', event: 'Память апостолов Петра и Павла' },
+                { date: '17 июля', event: 'Память святых Царственных страстотерпцев' }
+            ],
+            8: [
+                { date: '1 августа', event: 'Память преподобного Серафима Саровского' },
+                { date: '19 августа', event: 'Преображение Господне' }
+            ],
+            9: [
+                { date: '1 сентября', event: 'Память святителя Иоанна' },
+                { date: '21 сентября', event: 'Рождество Пресвятой Богородицы' }
+            ],
+            10: [
+                { date: '1 октября', event: 'Память преподобного Сергия Радонежского' },
+                { date: '14 октября', event: 'Покров Пресвятой Богородицы' }
+            ],
+            11: [
+                { date: '4 ноября', event: 'Память Казанской иконы Божией Матери' },
+                { date: '28 ноября', event: 'Память святителя Иоанна' }
+            ],
+            12: [
+                { date: '4 декабря', event: 'Введение во храм Пресвятой Богородицы' },
+                { date: '25 декабря', event: 'Память святителя Иоанна' }
+            ]
+        };
+
+              function renderCalendar(month) {
+            const grid = document.getElementById('calendarGrid');
+            grid.innerHTML = '';
+
+            let events = [];
+            if (month === 'all') {
+              
+                for (let key in calendarData) {
+                    events = events.concat(calendarData[key]);
+                }
+            } else {
+                events = calendarData[month] || [];
+            }
+
+            if (events.length === 0) {
+                grid.innerHTML = '<div class="no-dates">Нет памятных дат на выбранный месяц</div>';
+                return;
+            }
+
+            events.forEach(item => {
+                const cell = document.createElement('div');
+                cell.className = 'calendar-cell';
+                cell.innerHTML = `
+                    <div class="date">${item.date}</div>
+                    <div class="event"><i class="fa-solid fa-cross"></i> ${item.event}</div>
+                `;
+                grid.appendChild(cell);
+            });
+        }
+
+              const buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function() {
+               
+                buttons.forEach(b => b.classList.remove('active'));
+               
+                this.classList.add('active');
+                
+                const month = this.dataset.month;
+                renderCalendar(month);
+            });
+        });
+
+               renderCalendar('all');
+    </script>
+
+</body>
+</html>

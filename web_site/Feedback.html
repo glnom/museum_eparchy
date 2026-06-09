@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Церковно-исторический музей | Обратная связь и контакты</title>
+    <!-- Google Fonts & Font Awesome (как во втором файле) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- Полностью стилевое оформление из второго файла (музей) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefaf5;
+            color: #2c2418;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Верхняя навигация (sticky, как в музее) */
+        .top-nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e8ddce;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 252, 245, 0.96);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #8b5a2b;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #3e2c1a;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #b47c44;
+        }
+
+        /* Hero-секция */
+        .hero {
+            background: linear-gradient(135deg, #2a241a 0%, #1f1b14 100%);
+            color: #fef0df;
+            padding: 48px 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            letter-spacing: -0.3px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Сетка контактов + карта */
+        .contacts-section {
+            padding: 60px 0;
+            background: #fffaf3;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Общие карточки */
+        .contact-card {
+            background: white;
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.25s;
+            border: 1px solid #f0e2d2;
+            height: 100%;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 24px -8px rgba(0,0,0,0.12);
+            border-color: #ddb582;
+        }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #7a4b24;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid #d9a066;
+            padding-left: 18px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1.05rem;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0e2d2;
+        }
+
+        .contact-row i {
+            width: 28px;
+            color: #b77c3a;
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        .contact-row span {
+            color: #2c2418;
+            font-weight: 500;
+        }
+
+        .contact-row .contact-value {
+            font-weight: 400;
+            color: #4f3e2c;
+        }
+
+        /* Карта */
+        .map-card {
+            background: white;
+            border-radius: 32px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #f0e2d2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s;
+        }
+
+        .map-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 24px -8px rgba(0,0,0,0.12);
+            border-color: #ddb582;
+        }
+
+        .map-header {
+            background: #f8f1e8;
+            padding: 18px 24px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #7a4b24;
+            border-bottom: 1px solid #e8ddce;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-container {
+            background: #e9dfd1;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .map-placeholder {
+            font-size: 3.8rem;
+            color: #8b653b;
+            opacity: 0.8;
+        }
+
+        .map-container p {
+            font-size: 0.9rem;
+            color: #5a3f25;
+            background: rgba(255,250,240,0.7);
+            padding: 6px 14px;
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        /* Форма обратной связи */
+        .form-block {
+            background: #f8f1e8;
+            padding: 60px 0;
+            border-top: 1px solid #e5d5c0;
+            border-bottom: 1px solid #e5d5c0;
+        }
+
+        .form-box {
+            background: white;
+            border-radius: 32px;
+            padding: 38px 34px;
+            max-width: 720px;
+            margin: 0 auto;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+            border: 1px solid #ebddce;
+        }
+
+        .form-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #7a4b24;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .form-box input,
+        .form-box textarea {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            border: 1px solid #e2d4c4;
+            border-radius: 28px;
+            background: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        .form-box input:focus,
+        .form-box textarea:focus {
+            border-color: #d9a066;
+            box-shadow: 0 0 0 3px rgba(217, 160, 102, 0.2);
+        }
+
+        .form-box textarea {
+            border-radius: 24px;
+            resize: vertical;
+        }
+
+        .form-box button {
+            background-color: #d9a066;
+            border: none;
+            color: #2c2418;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.25s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .form-box button:hover {
+            background-color: #c18444;
+            transform: translateY(-2px);
+        }
+
+        /* Футер */
+        .footer {
+            background: #fefaf5;
+            padding: 48px 0 24px;
+            border-top: 1px solid #e5d5c0;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-col {
+            background: #fff6ed;
+            border-radius: 24px;
+            padding: 20px 24px;
+            border: 1px solid #ebddce;
+            flex: 1 1 200px;
+            transition: all 0.2s;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+            color: #8b5a2b;
+        }
+
+        .footer-col p {
+            color: #4f3e2c;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #7c6b58;
+            padding-top: 16px;
+            border-top: 1px dashed #e2d4c4;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 850px) {
+            .contacts-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+            .form-box {
+                padding: 28px 20px;
+            }
+            .form-box h3 {
+                font-size: 1.5rem;
+            }
+            .footer-grid {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Верхняя панель навигации -->
+<div class="top-nav">
+    <div class="container nav-flex">
+        <div class="logo">⛪ Церковно-исторический музей</div>
+        <ul class="nav-links">
+                <li><a href="For visitors.html">Посетителям</a></li>
+                <li><a href="Feedback.html">Обратная связь</a></li>
+                <li><a href="Номе page of the syte.html">Главная</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Hero-заголовок -->
+<div class="hero">
+    <div class="container">
+        <h1>Обратная связь и контакты</h1>
+        <p>Свяжитесь с нами, задайте вопрос или поделитесь впечатлениями о музее</p>
+    </div>
+</div>
+
+<!-- Основной блок: Контакты + Карта -->
+<div class="contacts-section">
+    <div class="container">
+        <div class="contacts-grid">
+            <!-- Левая колонка: контактные данные (без телефона, без телеграма, без кнопки скачать реквизиты) -->
+            <div class="contact-card">
+                <h3><i class="fas fa-address-card"></i> Контакты</h3>
+                <div class="contact-details">
+                    <div class="contact-row">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Адрес:</span>
+                        <span class="contact-value">г. Череповец, Советский проспект, д. 2</span>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email:</span>
+                        <span class="contact-value">dartfry90@gmail.com</span>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fas fa-clock"></i>
+                        <span>Часы работы:</span>
+                        <span class="contact-value">Вт–Вс 11:00 – 19:00 (касса до 18:30)</span>
+                    </div>
+                </div>
+                <!-- Кнопка скачать реквизиты полностью удалена по заданию -->
+            </div>
+
+            <!-- Правая колонка: схема проезда / карта -->
+            <div class="map-card">
+                <div class="map-header">
+                    <i class="fas fa-map"></i> Схема проезда / Карта
+                </div>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <p>📍 г. Череповец, Советский проспект, д. 2</p>
+                    <p style="font-size: 0.85rem; background: transparent;">Остановка «Дворец металлургов» рядом. Удобная транспортная развязка.</p>
+                    <div style="margin-top: 16px; background: #e9daca; padding: 6px 16px; border-radius: 30px; font-size: 0.75rem; font-weight: 500;">Автобусы: №1, 4, 12, 20, маршрутное такси</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Форма обратной связи -->
+<div class="form-block">
+    <div class="container">
+        <div class="form-box">
+            <h3><i class="fas fa-pen-fancy"></i> Форма обратной связи</h3>
+            <form action="#" method="post" id="feedbackForm">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="email" placeholder="Email для ответа" required>
+                <textarea rows="4" placeholder="Сообщение... (вопрос, отзыв или предложение)" required></textarea>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Отправить сообщение</button>
+            </form>
+            <p style="font-size: 0.75rem; margin-top: 18px; color:#7e6b58; text-align: center;">Нажимая «Отправить», вы соглашаетесь с политикой обработки данных</p>
+        </div>
+    </div>
+</div>
+
+<!-- Футер -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4><i class="fas fa-church"></i> О музее</h4>
+                <p>Церковно-исторический музей</p>
+                <p>Сохранение традиций</p>
+                <p>Духовное просвещение</p>
+            </div>
+            <div class="footer-col">
+                <h4><i class="fas fa-info-circle"></i> Контакты</h4>
+                <p>dartfry90@gmail.com</p>
+                <p>г. Череповец, Советский пр., 2</p>
+                <p>Часы работы: 11:00–19:00</p>
+            </div>
+            <div class="footer-col">
+                <h4><i class="fas fa-calendar-alt"></i> Режим работы</h4>
+                <p>Вторник–Воскресенье</p>
+                <p>11:00 – 19:00</p>
+                <p>Понедельник — выходной</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © Церковно-исторический музей, 2025 | Все права защищены | Сайт музея
+        </div>
+    </div>
+</footer>
+
+<!-- Скрипт для имитации отправки формы (без реальной перезагрузки) -->
+<script>
+    (function() {
+        const form = document.getElementById('feedbackForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const button = form.querySelector('button');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
+                button.disabled = true;
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-check-circle"></i> Сообщение отправлено!';
+                    form.reset();
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                    }, 2500);
+                }, 800);
+                // Всплывающее уведомление
+                let toast = document.createElement('div');
+                toast.textContent = '✓ Спасибо! Мы свяжемся с вами в ближайшее время.';
+                toast.style.position = 'fixed';
+                toast.style.bottom = '30px';
+                toast.style.left = '50%';
+                toast.style.transform = 'translateX(-50%)';
+                toast.style.backgroundColor = '#2c2418';
+                toast.style.color = '#fef0df';
+                toast.style.padding = '12px 24px';
+                toast.style.borderRadius = '60px';
+                toast.style.fontFamily = "'Inter', sans-serif";
+                toast.style.fontSize = '0.9rem';
+                toast.style.zIndex = '999';
+                toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
+                toast.style.backdropFilter = 'blur(8px)';
+                toast.style.border = '1px solid #d9a066';
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 500);
+                }, 3000);
+            });
+        }
+    })();
+</script>
+</body>
+</html>
